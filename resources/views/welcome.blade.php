@@ -105,7 +105,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <a class="greennature-donate-button greennature-lb-payment"><span class="greennature-button-overlay"></span><span class="greennature-button-donate-text">Login</span></a>
+                            <a href="{{ route('login') }}" class="greennature-donate-button"><span class="greennature-button-overlay"></span><span class="greennature-button-donate-text">Login</span></a>
 
                         </nav>
                         <div class="greennature-navigation-gimmick" id="greennature-navigation-gimmick"></div>
