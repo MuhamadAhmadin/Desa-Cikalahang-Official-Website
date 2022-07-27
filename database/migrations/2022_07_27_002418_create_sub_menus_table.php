@@ -16,11 +16,11 @@ class CreateSubMenusTable extends Migration
         Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_id');
-            $table->string('nama');
+            $table->string('nama')->nullable();
             $table->text('link')->nullable();
             $table->foreignId('page_id')->nullable();
-            $table->integer('urutan');
-            $table->boolean('visible');
+            $table->integer('urutan')->nullable();
+            $table->boolean('visible')->default(1);
             $table->timestamps();
         });
     }
