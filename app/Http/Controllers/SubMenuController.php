@@ -55,7 +55,7 @@ class SubMenuController extends Controller
         ]);
 
         $SubMenu = new SubMenu();
-        $SubMenu->nama = htmlspecialchars($request->nama);
+        $SubMenu->nama = $request->nama;
         if ($request->tipe_menu == 'page') {
             $SubMenu->page_id = $request->page_id;
             $SubMenu->link = NULL;
@@ -116,7 +116,7 @@ class SubMenuController extends Controller
             'menu_id' => ['nullable'],
         ]);
 
-        $SubMenu->nama = htmlspecialchars($request->nama);
+        $SubMenu->nama = $request->nama;
         $SubMenu->menu_id = $request->menu_id;
         if ($request->tipe_menu == 'page') {
             $SubMenu->page_id = $request->page_id;

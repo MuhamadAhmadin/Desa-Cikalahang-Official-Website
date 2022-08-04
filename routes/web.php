@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/berita', [FrontPageController::class, 'berita'])->name('berita');
 Route::get('/berita/{slug}', [FrontPageController::class, 'berita_show'])->name('berita.show');
