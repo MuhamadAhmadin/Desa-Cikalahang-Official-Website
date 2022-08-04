@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     use HasFactory;
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class)->withDefault(['nama' => '-']);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault(['name' => '-']);
+    }
 }
