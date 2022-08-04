@@ -15,31 +15,21 @@
                                     <!-- MasterSlider Main -->
                                     <div id="slider_1" class="master-slider ms-skin-default">
 
-                                        <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="{{ asset('') }}/front/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="{{ asset('') }}/front/images/slider/sl-1.jpg" />
+                                        @foreach ($slider as $item)
+                                            <div class="ms-slide" data-delay="7" data-fill-mode="fill">
+                                                <img src="{{ asset('') }}/front/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="{{ url(Storage::url($item->thumbnail)) }}" />
 
-                                            <a href="#" target="_self" class="ms-layer ms-btn ms-btn-round ms-btn-n msp-preset-btn-159" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="400" data-delay="987" data-ease="easeOutQuint" data-type="button" data-offset-x="1" data-offset-y="208" data-origin="ml" data-position="normal">Desa Cikalahang</a>
+                                                <a href="{{ $item->btn_link }}" target="_self" class="ms-layer ms-btn ms-btn-round ms-btn-n msp-preset-btn-159" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="400" data-delay="987" data-ease="easeOutQuint" data-type="button" data-offset-x="1" data-offset-y="208" data-origin="ml" data-position="normal">{{ $item->btn_text }}</a>
 
-                                            <div class="ms-layer  msp-cn-1-3" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="437" data-delay="625" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="105" data-origin="ml" data-position="normal">
-                                                Untuk Bumi</div>
+                                                {{-- <div class="ms-layer  msp-cn-1-3" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="437" data-delay="625" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="105" data-origin="ml" data-position="normal">
+                                                    Untuk Bumi</div>
 
-                                            <div class="ms-layer  msp-cn-1-2" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-delay="325" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-5" data-origin="ml" data-position="normal">
-                                                Berbudidaya</div>
-
-                                            <div class="ms-layer  msp-cn-1-1" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="350" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-100" data-origin="ml" data-position="normal">
-                                                Bersama</div>
-
-                                        </div>
-                                        <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="{{ asset('') }}/front/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="{{ asset('') }}/front/upload/slider-3.jpg" />
-
-                                            <div class="ms-layer  msp-cn-1-10" style="" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-delay="425" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="82" data-origin="mc" data-position="normal">
-                                                The Better Place</div>
-
-                                            <div class="ms-layer  msp-cn-1-13" style="" data-effect="t(true,n,n,500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="437" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-15" data-origin="mc" data-position="normal">
-                                                Make This World</div>
-
-                                        </div>
+                                                <div class="ms-layer  msp-cn-1-2" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-delay="325" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-5" data-origin="ml" data-position="normal">
+                                                    Berbudidaya</div> --}}
+                                                    <div class="ms-layer  msp-cn-1-2" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-delay="325" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-5" data-origin="ml" data-position="normal">{{ $item->title }}</div>
+                                                {{-- <div class="ms-layer  msp-cn-1-1" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="350" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-100" data-origin="ml" data-position="normal">{{ $item->title }}</div> --}}
+                                            </div>
+                                        @endforeach
 
                                     </div>
                                     <!-- END MasterSlider Main -->

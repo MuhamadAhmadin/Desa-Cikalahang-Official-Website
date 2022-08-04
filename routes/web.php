@@ -13,18 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [App\Http\Controllers\FrontPageController::class, 'index'])->name('welcome');
 
-Route::get('/berita', [FrontPageController::class, 'berita'])->name('berita');
-Route::get('/berita/{slug}', [FrontPageController::class, 'berita_show'])->name('berita.show');
-Route::get('/kategori/{slug}', [FrontPageController::class, 'berita_kategori_list'])->name('berita_kategori.list');
-Route::post('/berita_search', [FrontPageController::class, 'berita_search'])->name('berita.search');
-Route::get('/galeri', [FrontPageController::class, 'galeri'])->name('galeri');
-Route::get('/kontak', [FrontPageController::class, 'kontak'])->name('kontak');
-Route::get('page/{slug}', [FrontPageController::class, 'page_single'])->name('page_single');
-Route::get('/page/{slug}', [FrontPageController::class, 'page_show'])->name('page.show');
+Route::get('/berita', [App\Http\Controllers\FrontPageController::class, 'berita'])->name('berita');
+Route::get('/berita/{slug}', [App\Http\Controllers\FrontPageController::class, 'berita_show'])->name('berita.show');
+Route::get('/kategori/{slug}', [App\Http\Controllers\FrontPageController::class, 'berita_kategori_list'])->name('berita_kategori.list');
+Route::post('/berita_search', [App\Http\Controllers\FrontPageController::class, 'berita_search'])->name('berita.search');
+Route::get('/galeri', [App\Http\Controllers\FrontPageController::class, 'galeri'])->name('galeri');
+Route::get('/kontak', [App\Http\Controllers\FrontPageController::class, 'kontak'])->name('kontak');
+Route::get('page/{slug}', [App\Http\Controllers\FrontPageController::class, 'page_single'])->name('page_single');
+Route::get('/page/{slug}', [App\Http\Controllers\FrontPageController::class, 'page_show'])->name('page.show');
 
 // Dashboard untuk semua role setelah authenticated
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => ['auth']], function () {

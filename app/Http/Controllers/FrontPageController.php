@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
-use App\Models\DokZi;
-use App\Models\Event;
 use App\Models\Galeri;
-use App\Models\JadwalKapal;
 use App\Models\Kategori;
 use App\Models\Page;
 use App\Models\Slider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Image;
 use Illuminate\Support\Str;
 
 class FrontPageController extends Controller
@@ -21,7 +16,6 @@ class FrontPageController extends Controller
     {
         $data = [
             'title' => 'Homepage',
-            'events' => Event::orderBy('id', 'DESC')->take(3)->get(),
             'berita' => Berita::orderBy('id', 'DESC')->take(3)->get(),
             'galeri' => Galeri::orderBy('id', 'DESC')->take(5)->get(),
             'slider' => Slider::orderBy('urutan', 'ASC')->take(3)->get()
@@ -37,54 +31,6 @@ class FrontPageController extends Controller
         ];
 
         return view('tentang', $data);
-    }
-
-    public function jadwal_kapal()
-    {
-        $data = [
-            'title' => 'Jadwal Kapal',
-            'data' => JadwalKapal::latest()->paginate(4)
-        ];
-
-        return view('jadwal_kapal', $data);
-    }
-
-    public function jadwal_kapal_show(JadwalKapal $jadwalKapal)
-    {
-        return view('jadwal_kapal_show', [
-            'jadwal_kapal' => $jadwalKapal,
-        ]);
-    }
-
-    public function dokzi()
-    {
-        $data = [
-            'title' => 'Dokumen ZI',
-            'data' => DokZi::latest()->paginate(4)
-        ];
-
-        return view('dokzi', $data);
-    }
-
-    public function dokzi_show($id)
-    {
-        $dokZi = DokZi::findOrFail($id);
-        $data = [
-            'title' => $dokZi->nomor . ' ' . $dokZi->variabel,
-            'dokzi' => $dokZi
-        ];
-
-        return view('dokzi_show', $data);
-    }
-
-    public function event()
-    {
-        $data = [
-            'title' => 'Event',
-            'events' => Event::orderBy('id', 'DESC')->paginate(6)
-        ];
-
-        return view('events', $data);
     }
 
     public function kontak()
@@ -155,17 +101,6 @@ class FrontPageController extends Controller
         ];
 
         return view('berita_search', $data);
-    }
-
-    public function event_show($slug)
-    {
-        $event = Event::where('slug', $slug)->firstOrFail();
-        $data = [
-            'title' => $event->judul,
-            'event' => $event
-        ];
-
-        return view('event_detail', $data);
     }
 
     public function page_show($slug)
