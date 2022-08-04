@@ -46,7 +46,7 @@ class FrontPageController extends Controller
     {
         $data = [
             'title' => 'List Berita',
-            'beritas' => Berita::where('visible', 1)->orderBy('id', 'DESC')->paginate(3)
+            'beritas' => Berita::where('visible', 1)->orderBy('id', 'DESC')->paginate(4)
         ];
 
         return view('berita', $data);
@@ -68,9 +68,6 @@ class FrontPageController extends Controller
             'title' => $berita->judul,
             'berita' => $berita
         ];
-        $current_view = $berita->views;
-        $berita->views = $current_view + 1;
-        $berita->save();
 
         return view('berita_detail', $data);
     }
