@@ -55,7 +55,7 @@
                                                 <h3 class="column-service-title">Alam Hijau</h3>
                                                 <div class="column-service-content greennature-skin-content">
                                                     <p>Pada zaman dahulu desa Cikalahang merupakan hutan yang sangat lebat, orang-orangpun mendatangi lahan tersebut untuk menjadikan tempat tinggal. semakin lama semakin banyak orang yang bertempat tinggal di lahan tersebut. Hingga lahan tersebut menjadi ramai dan dinamakan sebagi desa Sudi Mampir</p>
-                                                </div><a class="column-service-read-more" href="#">Learn More</a></div>
+                                                </div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                                 <h3 class="column-service-title">Air Yang Bersih</h3>
                                                 <div class="column-service-content greennature-skin-content">
                                                     <p>Desa Cikalahang terletak di dekat kaki gunung Ciremai, membuatnya memiliki kualitas air yang sangat baik dan kaya akan mineral. Hingga pada akhirnya orang-orang lebih mengenal desa Sudi Mampir dengan sebutan desa Cikalahang yang artinya Ci= cai/air, Lahang= hambar/ tak berasa</p>
-                                                </div><a class="column-service-read-more" href="#">Learn More</a></div>
+                                                </div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                                 <h3 class="column-service-title">Budidaya</h3>
                                                 <div class="column-service-content greennature-skin-content">
                                                     <p>Saat ini Desa Cikalahang lebih dominan dengan budidaya mereka dengan air, yaitu Budidaya Ikan. Tidak lupa juga, Desa Cikalahang memiliki obyek wisata Air (Telaga Pejaten, Hegar, dll). Maka dari itu, Bagi para penikmat kuliner sepanjang jalan menuju tempat wisata banyak dijumpai rumah makan terutama ikan bakar dengan cita rasa yang tinggi dengan harga yang kompetitif.</p>
-                                                </div><a class="column-service-read-more" href="#">Learn More</a></div>
+                                                </div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -131,66 +131,27 @@
                                     <div class="portfolio-item-holder  greennature-portfolio-column-4">
                                         <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows">
                                             <div class="clear"></div>
+                                            @foreach ($berita as $item)
                                             <div class="three columns">
                                                 <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                                                     <div class="greennature-ux greennature-classic-portfolio-ux">
-                                                        <div class="portfolio-thumbnail greennature-image"><img src="{{ asset('') }}/front/upload/shutterstock_161515241-540x326.jpg" alt="" width="540" height="326" /><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>
+                                                        <div class="portfolio-thumbnail greennature-image" style="height: 200px;">
+                                                            <img src="{{ $item->thumbnail == '' ? asset('img/default.png') : url(Storage::url($item->thumbnail)) }}" alt="" style="height: 100%;object-fit:cover" />
+                                                            <span class="portfolio-overlay">&nbsp;</span>
+                                                            <a class="portfolio-overlay-icon" href="upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a>
+                                                        </div>
                                                         <div class="portfolio-classic-content">
-                                                            <h3 class="portfolio-title"><a  href="#"  >Wind Energy</a></h3>
+                                                            <h3 class="portfolio-title"><a  href="{{ route('berita.show', $item->slug) }}">{{ Str::limit($item->judul, 40, '...') }}</a></h3>
                                                             <div class="greennature-portfolio-info">
-                                                                <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title">Tags </span><a href="#" rel="tag">Environment</a><span class="sep">,</span> <a href="#" rel="tag">Renewable Energy</a></div>
+                                                                <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title">Tags </span><a href="#" rel="tag">{{ $item->kategori->nama }}</a><span class="sep"></div>
                                                                 <div class="clear"></div>
                                                             </div>
-                                                            <div class="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua....
-                                                                <div class="clear"></div><a href="#" class="excerpt-read-more">Read More</a></div><a class="portfolio-classic-learn-more" href="#">Learn More</a></div>
+                                                            <div class="portfolio-excerpt">{!! Str::limit(strip_tags($item->deskripsi), 100, '...') !!}
+                                                                <div class="clear"></div><a href="{{ route('berita.show', $item->slug) }}" class="excerpt-read-more">Read More</a></div><a class="portfolio-classic-learn-more" href="#">Learn More</a></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="three columns">
-                                                <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                                                    <div class="greennature-ux greennature-classic-portfolio-ux">
-                                                        <div class="portfolio-thumbnail greennature-image"><img src="{{ asset('') }}/front/upload/shutterstock_133689230-540x326.jpg" alt="" width="540" height="326" /><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="#"><span class="portfolio-icon" ><i class="fa fa-link" ></i></span></a></div>
-                                                        <div class="portfolio-classic-content">
-                                                            <h3 class="portfolio-title"><a  href="#"  >Elephant Sanctuary</a></h3>
-                                                            <div class="greennature-portfolio-info">
-                                                                <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title">Tags </span><a href="#" rel="tag">African</a><span class="sep">,</span> <a href="#" rel="tag">Animals</a></div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                            <div class="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua....
-                                                                <div class="clear"></div><a href="#" class="excerpt-read-more">Read More</a></div><a class="portfolio-classic-learn-more" href="#">Learn More</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="three columns">
-                                                <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                                                    <div class="greennature-ux greennature-classic-portfolio-ux">
-                                                        <div class="portfolio-thumbnail greennature-image"><img src="{{ asset('') }}/front/upload/shutterstock_53600221-540x326.jpg" alt="" width="540" height="326" /><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="https://vimeo.com/101707505" data-rel="fancybox" data-fancybox-type="iframe"><span class="portfolio-icon" ><i class="fa fa-film" ></i></span></a></div>
-                                                        <div class="portfolio-classic-content">
-                                                            <h3 class="portfolio-title"><a  href="#"  >Conservation Volunteer</a></h3>
-                                                            <div class="greennature-portfolio-info">
-                                                                <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title">Tags </span><a href="#" rel="tag">Cleaning</a><span class="sep">,</span> <a href="#" rel="tag">Volunteer</a></div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                            <div class="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua....
-                                                                <div class="clear"></div><a href="#" class="excerpt-read-more">Read More</a></div><a class="portfolio-classic-learn-more" href="#">Learn More</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="three columns">
-                                                <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                                                    <div class="greennature-ux greennature-classic-portfolio-ux">
-                                                        <div class="portfolio-thumbnail greennature-image"><img src="{{ asset('') }}/front/upload/shutterstock_124871620-540x326.jpg" alt="" width="540" height="326" /><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="#"><span class="portfolio-icon" ><i class="fa fa-link" ></i></span></a></div>
-                                                        <div class="portfolio-classic-content">
-                                                            <h3 class="portfolio-title"><a  href="#"  >Engery Conservation</a></h3>
-                                                            <div class="greennature-portfolio-info">
-                                                                <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title">Tags </span><a href="#" rel="tag">Animals</a><span class="sep">,</span> <a href="#" rel="tag">Volunteer</a></div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                            <div class="portfolio-excerpt">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua....
-                                                                <div class="clear"></div><a href="#" class="excerpt-read-more">Read More</a></div><a class="portfolio-classic-learn-more" href="#">Learn More</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <div class="clear"></div>
                                     </div>
@@ -281,14 +242,6 @@
                                 <div class="clear"></div>
                                 <div class="greennature-item greennature-divider-item" style="margin-bottom: 60px;">
                                     <div class="greennature-divider thick"></div>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="greennature-stunning-item-ux greennature-ux">
-                                    <div class="greennature-item greennature-stunning-item greennature-stunning-center">
-                                        <h2 class="stunning-item-title">The only way to make this happened is to take action!</h2>
-                                        <div class="stunning-item-caption greennature-skin-content">
-                                            <p>Praesent commodo cursus magna, vel scelerisque nislet.</p>
-                                        </div><a class="stunning-item-button greennature-button large greennature-lb-payment" href="#" style="background-color: #ecb338; color: #ffffff;">Donate Now!</a><a class="stunning-item-button greennature-button large" href="#">Act Now!</a></div>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="clear"></div>

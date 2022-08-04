@@ -16,8 +16,8 @@ class FrontPageController extends Controller
     {
         $data = [
             'title' => 'Homepage',
-            'berita' => Berita::orderBy('id', 'DESC')->take(3)->get(),
-            'galeri' => Galeri::orderBy('id', 'DESC')->take(5)->get(),
+            'berita' => Berita::orderBy('id', 'DESC')->take(4)->get(),
+            'galeri' => Galeri::orderBy('id', 'DESC')->take(6)->get(),
             'slider' => Slider::orderBy('urutan', 'ASC')->take(3)->get()
         ];
 
