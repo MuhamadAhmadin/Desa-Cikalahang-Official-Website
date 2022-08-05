@@ -66,7 +66,9 @@ class FrontPageController extends Controller
         $berita = Berita::where('slug', $slug)->firstOrFail();
         $data = [
             'title' => $berita->judul,
-            'berita' => $berita
+            'berita' => $berita,
+            'berita_terbaru' => Berita::orderBy('id', 'DESC')->take(3)->get(),
+            'kategori' => Kategori::orderBy('id', 'DESC')->get(),
         ];
 
         return view('berita_detail', $data);
