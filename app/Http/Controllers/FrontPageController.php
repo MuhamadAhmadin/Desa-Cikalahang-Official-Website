@@ -54,8 +54,10 @@ class FrontPageController extends Controller
 
     public function galeri()
     {
+        $galeris = Galeri::paginate(6);
         $data = [
             'title' => 'List Galeri',
+            'galeris' => $galeris
         ];
 
         return view('galeri', $data);
