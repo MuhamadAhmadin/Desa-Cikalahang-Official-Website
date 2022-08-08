@@ -33,13 +33,6 @@
                                 <div class="row mt-3">
                                     <div class="col-md-6">
                                         <div class="form-group form-group-default">
-                                            <label>Username</label>
-                                            <input type="text" class="form-control" name="username"
-                                                value="{{ $user->username }}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
                                             <label>Nama</label>
                                             <input type="text" class="form-control" name="name" placeholder="Nama Lengkap"
                                                 value="{{ $user->name }}">
@@ -69,24 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card card-profile">
-                        <div class="card-header" style="background-image: url('{{ asset('') }}/img/blogpost.jpg')">
-                            <div class="profile-picture">
-                                <div class="avatar avatar-xl">
-                                    <img src="{{ asset('') }}/img/user.png" alt="..." class="avatar-img rounded-circle">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="user-profile text-center">
-                                <div class="name">{{ $user->name }}</div>
-                                <div class="job">Admin</div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

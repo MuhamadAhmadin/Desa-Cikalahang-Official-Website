@@ -25,7 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Username</th>
+                                            <th>Email</th>
                                             <th>Nama Petugas</th>
                                             <th>Role</th>
                                             <th>Aksi</th>
@@ -58,8 +58,8 @@
                         name: 'id'
                     },
                     {
-                        data: 'username',
-                        name: 'Username'
+                        data: 'email',
+                        name: 'email'
                     },
                     {
                         data: 'name',

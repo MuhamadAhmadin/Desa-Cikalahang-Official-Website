@@ -142,7 +142,7 @@
                                         <p>Kami menerima saran dan kritik yang membangun sehingga dapat dijadikan sebuah
                                             patokan benchmark untuk Desa Cikalahang terus lebih baik lagi.</p>
                                         <a class="action-ads-button large greennature-button"
-                                            style="color: #ffffff;background-color: #5dc269;" href="#">Kotak
+                                            style="color: #ffffff;background-color: #5dc269;" href="https://docs.google.com/forms/d/e/1FAIpQLSdPNGghr9kCnqk-BbFrX1AtzwB-8TYq6Vwzb6-xDtfYcDjOzA/viewform">Kotak
                                             Saran</a>
                                     </div>
                                 </div>
@@ -156,8 +156,8 @@
                                     <div class="action-ads-content">
                                         <p>Laporkan pelanggaran-pelanggaran yang terjadi di desa Cikalahang. Perangkat Desa
                                             akan menegakkan disiplin dan ketertiban di lingkungan Desa Cikalahang.</p>
-                                        <a class="action-ads-button large greennature-button greennature-lb-payment"
-                                            href="#" style="color: #6d5b1c;background-color: #fec428;">Pengaduan</a>
+                                        <a class="large greennature-button"
+                                            href="https://forms.gle/3asog5qhbPFuiFax8" style="color: #6d5b1c;background-color: #fec428;">Pengaduan</a>
                                     </div>
                                 </div>
                             </div>

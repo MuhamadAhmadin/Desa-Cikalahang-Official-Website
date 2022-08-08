@@ -34,18 +34,15 @@ class UserController extends Controller
             $columnSortOrder = $order_arr[0]['dir'];
             $searchValue = $search_arr['value'];
 
-            $totalRecords = User::select('count(*) as allcount')->where('role', '!=', 'admin')->count();
+            $totalRecords = User::select('count(*) as allcount')->count();
             $totalRecordswithFilter = User::where(function ($query) use ($searchValue) {
                 $query->orWhere('name', 'like', '%' . $searchValue . '%');
-                $query->orWhere('username', 'like', '%' . $searchValue . '%');
-            })->where('role', '!=', 'admin')->count();
+            })->count();
 
             $records = User::orderBy($columnName, $columnSortOrder)
                 ->where(function ($query) use ($searchValue) {
                     $query->orWhere('name', 'like', '%' . $searchValue . '%');
-                    $query->orWhere('username', 'like', '%' . $searchValue . '%');
                 })
-                ->where('role', '!=', 'admin')
                 ->skip($start)
                 ->take($rowperpage)
                 ->get();
@@ -74,25 +71,13 @@ class UserController extends Controller
                     </div>
                 ';
 
-                $username = $record->username;
+                $email = $record->email;
 
-                switch ($record->role) {
-                    case 'admin':
-                        $role = '<span class="badge badge-info">Administrator</span>';
-                        break;
-                    case 'staff':
-                        $role = '<span class="badge badge-warning">Staff Web</span>';
-                        break;
-                    case 'user':
-                        $role = '<span class="badge badge-warning">User</span>';
-                        break;
-                    default:
-                        $role = '<span class="badge badge-info">Akun</span>';
-                }
+                $role = '<span class="badge badge-info">Akun</span>';
 
                 $data_arr[] = array(
                     "id" => $increment,
-                    "username" => $username,
+                    "email" => $email,
                     "name" => $record->name,
                     "role" => $role,
                     "aksi" => $aksi
@@ -137,7 +122,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => ['required', 'string', 'unique:users,username'],
+            'email' => ['required', 'string', 'unique:users,email'],
             'name' => ['required', 'string'],
             'password' => ['required'],
         ]);
@@ -149,8 +134,7 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->password = $request->password;
-            $user->username = $request->username;
-            $user->role = $request->role;
+            $user->email = $request->email;
             $user->save();
 
             return redirect()->back()->with([

@@ -177,11 +177,6 @@
                             <div class="collapse" id="base_2">
                                 <ul class="nav nav-collapse">
                                     <li>
-                                        <a href="{{ route('dashboard.user.index') }}">
-                                            <span class="sub-item">Akun</span>
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a href="{{ route('dashboard.menu.index') }}">
                                             <span class="sub-item">Menu</span>
                                         </a>

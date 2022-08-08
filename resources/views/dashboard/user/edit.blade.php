@@ -28,14 +28,6 @@
                             @method('PUT')
                             <div class="card-body">
                                 <div class="row">
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Username <span class="text-danger text-bold">*</span></label>
-                                            <input type="text" name="username" class="form-control"
-                                                value="{{ old('username') ?? $user->username }}" required>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Nama Petugas <span class="text-danger text-bold">*</span></label>
@@ -55,21 +47,8 @@
                                             <label>Password</label>
                                             <input type="password" name="password" class="form-control">
                                         </div>
+                                        <small class="text-muted">Kosongkan jika tidak ingin dirubah</small>
                                     </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Role <span class="text-danger text-bold">*</span></label>
-                                            <select name="role" id="role" class="form-control select2" required>
-                                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Administrator</option>
-                                                <option value="staff" {{ $user->role == 'staff' ? 'selected' : '' }}>
-                                                    Staff Web</option>
-                                                <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>
-                                                    User</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                             <div class="card-action">
