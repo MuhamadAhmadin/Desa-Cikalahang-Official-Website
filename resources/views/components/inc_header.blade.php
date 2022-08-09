@@ -18,7 +18,7 @@
         <meta property="og:url" content="https://cikalahang.com/" />
         <meta property="og:site_name" content="Cikalahang Official Website" />
     @endif
-    <link rel="shortcut icon" href="{{ asset('front/images/fav.jpg') }}" />
+    <link rel="shortcut icon" href="{{ asset('front/images/favdesa.png') }}" />
 
 
     <link rel='stylesheet'

@@ -4,7 +4,7 @@
         </nav>
         <div class="copyright ml-auto">
             2022, made with <i class="fa fa-heart heart text-danger"></i> by <a
-                href="https://bengkelwebindonesia.com/">Bengkel Web Indonesia</a>
+                href="https://www.instagram.com/kkm_cikalahang/">KKM 35 UMC - Cikalahang</a>
         </div>
     </div>
 </footer>
