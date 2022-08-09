@@ -82,6 +82,11 @@
                 </div>
             </div>
             <div id="greennature-header-substitute"></div>
+            @php
+            $menu = \App\Models\Menu::where('visible', 1)
+                ->orderBy('urutan', 'ASC')
+                ->get();
+            @endphp
             <div class="greennature-header-inner header-inner-header-style-5">
                 <div class="greennature-header-container container">
                     <div class="greennature-header-inner-overlay"></div>
@@ -95,14 +100,23 @@
                             id="greennature-responsive-navigation">
                             <button class="dl-trigger">Open Menu</button>
                             <ul id="menu-main-menu" class="dl-menu greennature-main-mobile-menu">
-                                <li
-                                    class="menu-item menu-item-home current-menu-item page_item page-item-5680 current_page_item">
-                                    <a href="index-2.html" aria-current="page">Home</a></li>
-                                <li class="menu-item menu-item-has-children menu-item-15"><a href="#">Pages</a>
-                                    <ul class="dl-submenu">
-                                        <li class="menu-item"><a href="act-now.html">Act Now</a></li>
-                                    </ul>
-                                </li>
+                                @foreach ($menu as $item)
+                                    @if ($item->sub_menu->count() > 0)
+                                        {{-- has sub menu --}}
+                                        <li class="menu-item menu-item-has-children menu-item-15"><a href="#">{{ $item->nama }}</a>
+                                            <ul class="dl-submenu">
+                                                @foreach ($item->sub_menu as $sub)
+                                                    <li class="menu-item"><a href="{{ $sub->get_link() }}">{{ $sub->nama }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @else
+                                        <li class="menu-item menu-item-home current-menu-item page_item page-item-5680 current_page_item">
+                                            <a href="{{ $item->link }}" aria-current="page">{{ $item->nama }}</a></li>
+                                    @endif
+                                @endforeach
+
+
                             </ul>
                         </div>
                     </div>
@@ -113,11 +127,7 @@
                             <ul id="menu-main-menu-1" class="sf-menu greennature-main-menu">
                                 <li class="menu-item menu-item-home current-menu-item greennature-normal-menu"><a
                                         href="{{ route('welcome') }}"><i class="fa fa-home"></i>Beranda</a></li>
-                                @php
-                                    $menu = \App\Models\Menu::where('visible', 1)
-                                        ->orderBy('urutan', 'ASC')
-                                        ->get();
-                                @endphp
+
                                 @foreach ($menu as $item)
                                     @if ($item->sub_menu->count() > 0)
                                         {{-- has sub menu --}}
