@@ -137,9 +137,10 @@
                         <div class="greennature-item-start-content sidebar-right-item">
                             <div id="search-3" class="widget widget_search greennature-item greennature-widget">
                                 <div class="gdl-search-form">
-                                    <form method="get" id="searchform" action="https://demo.goodlayers.com/greennature//">
+                                    <form method="POST" id="searchform" action="{{ route('berita.search') }}">
+                                        @csrf
                                         <div class="search-text" id="search-text">
-                                            <input type="text" name="s" id="s" autocomplete="off" data-default="Pencarian..." />
+                                            <input type="text" name="keyword" id="keyword" autocomplete="off" data-default="Pencarian..." />
                                         </div>
                                         <input type="submit" id="searchsubmit" value="" />
                                         <div class="clear"></div>
