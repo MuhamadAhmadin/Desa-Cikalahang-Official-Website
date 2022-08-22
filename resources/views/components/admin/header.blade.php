@@ -44,7 +44,7 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="green">
 
-                <a href="index.html" class="logo">
+                <a href="{{ route('welcome') }}" class="logo">
                     <img src="{{ asset('front/images/logo.png') }}" alt="navbar brand" class="navbar-brand" style="width: 160px;">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
