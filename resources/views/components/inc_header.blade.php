@@ -93,7 +93,7 @@
                     <!-- logo -->
                     <div class="greennature-logo">
                         <div class="greennature-logo-inner">
-                            <a href="index-2.html">
+                            <a href="{{ route('welcome') }}">
                                 <img src="{{ asset('') }}/front/images/logo.png" alt="" /> </a>
                         </div>
                         <div class="greennature-responsive-navigation dl-menuwrapper"
